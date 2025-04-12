@@ -9,7 +9,7 @@ body {
     display: grid;
     grid-template-columns: 240px 1fr;
     grid-template-rows: 1fr 80px;
-    height: 100vh;
+    height: 98vh;
     grid-template-areas:
       "sidebar main"
       "player player";
@@ -75,7 +75,7 @@ body {
   }
   
   .logo-icon {
-    color: #1DB954;
+    color: #0075ff;
     background: #000;
     font-size: 24px;
     padding: 4px;
@@ -110,7 +110,7 @@ body {
   }
   
   .playlist li:hover {
-    color: #1DB954;
+    color: #0075ff;
   }
   
   .playlist-link {
@@ -122,7 +122,7 @@ body {
   }
   
   .playlist-link:hover {
-    color: #1DB954;
+    color: #0075ff;
   }
   
   .library-page {
@@ -162,8 +162,19 @@ body {
   .song-left {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
   }
+  
+  .song-title {
+    font-weight: 500;
+    color: white;
+  }
+  
+  .song-artist {
+    color: #aaa; /* Duller or lower contrast color */
+    font-size: 0.9em;
+  }
+  
   
   .song-right {
     display: flex;
@@ -216,8 +227,8 @@ body {
   }
   
   .album-thumbnail {
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     object-fit: cover;
     margin-right: 20px;
     border-radius: 4px;
@@ -289,3 +300,390 @@ body {
     display: block;
   }
   
+  .modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+  }
+  
+  .modal {
+    background: #222;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+  }
+  
+  .modal h3 {
+    margin-top: 0;
+  }
+  
+  .modal input {
+    width: 100%;
+    padding: 8px;
+    margin: 12px 0;
+    border-radius: 4px;
+    border: none;
+    font-size: 14px;
+  }
+  
+  .modal-buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .modal-buttons button {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .modal-buttons button:first-child {
+    background-color: #0075ff;
+    color: black;
+  }
+  
+  .modal-buttons button:last-child {
+    background-color: #333;
+    color: white;
+  }
+  
+  .modal textarea {
+    width: 100%;
+    padding: 8px;
+    margin: 8px 0 12px;
+    border-radius: 4px;
+    border: none;
+    font-size: 14px;
+    resize: none;
+  }
+  
+  .logo-link {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .player {
+  background: #111;
+  color: white;
+  /* padding: 10px; */
+  font-family: sans-serif;
+  width: 100%;
+}
+
+.player-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.progress-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%; /* full width */
+  margin-bottom: 8px;
+  padding: 0 20px; /* optional: add side padding */
+  box-sizing: border-box;
+}
+
+.progress-bar input[type='range'] {
+  flex: 1;
+}
+
+.player-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 40%;
+  /* padding: 0 20px; */
+  box-sizing: border-box;
+}
+
+.song-thumbnail {
+  width: 40px;
+  height: 40px;
+  margin-right: 4px;
+  background: gray;
+}
+
+.song-text p {
+  margin: 0;
+}
+
+.control-buttons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.volume-slider {
+  width: 80px;
+}
+
+.queue-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+}
+
+.queue-modal {
+  background: #222;
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.queue-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.close-queue-btn {
+  margin-top: 10px;
+  background: #0075ff;
+  color: black;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+.add-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+}
+
+.add-modal {
+  background: #222;
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
+}
+
+.playlist-list {
+  list-style: none;
+  padding: 0;
+  margin: 15px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.playlist-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.playlist-item button {
+  background: #0075ff;
+  color: black;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+.close-add-btn {
+  margin-top: 10px;
+  background: #333;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.auth-page {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: 100px auto;
+  background: #222;
+  padding: 20px;
+  border-radius: 8px;
+  color: white;
+}
+
+.auth-page form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.auth-page input,
+.auth-page select {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.auth-page button {
+  padding: 10px;
+  background: #0075ff;
+  color: black;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.analytics-dashboard {
+  background-color: #1f1f1f;
+  color: white;
+  padding: 30px;
+  min-height: 90vh;
+}
+
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.app-logo {
+  width: 30px;
+  height: 30px;
+}
+
+.dashboard-buttons {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.dashboard-buttons button {
+  background-color: #0075ff;
+  color: white;
+  border: none;
+  padding: 14px 24px;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.dashboard-songs {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal {
+  background: #2a2a2a;
+  padding: 30px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 500px;
+  color: white;
+}
+
+.modal h2 {
+  margin-bottom: 20px;
+}
+
+.modal label {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.modal input,
+.modal textarea,
+.modal select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  border: none;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.modal-actions button {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.modal-actions button:first-child {
+  background-color: #0075ff;
+  color: white;
+}
+
+.modal-actions button:last-child {
+  background-color: #555;
+  color: white;
+}
+
+.report-select {
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+}
+
+.report-select select {
+  padding: 6px 12px;
+  border-radius: 4px;
+  background: #2a2a2a;
+  color: white;
+  border: 1px solid #555;
+}

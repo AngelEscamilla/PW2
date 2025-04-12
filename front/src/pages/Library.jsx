@@ -8,9 +8,9 @@ const Library = () => {
   const playlist = {
     name: decodeURIComponent(playlistName),
     songs: [
-      { title: 'Cancion 1', duration: '3:20' },
-      { title: 'Cancion 2', duration: '4:10' },
-      { title: 'Cancion 3', duration: '1:59' },
+      {songId:'1', title: 'Cancion 1', artist:'Artista 1', artistId:'1', duration: '3:20' },
+      {songId:'2', title: 'Cancion 2', artist:'Artista 1', artistId:'1', duration: '4:10' },
+      {songId:'3', title: 'Cancion 3', artist:'Artista 1', artistId:'1', duration: '1:59' }
     ],
   }
 
@@ -20,7 +20,7 @@ const Library = () => {
 
       <div className="library-songs">
         {playlist.songs.map((song, index) => (
-          <SongItem key={index} title={song.title} duration={song.duration} />
+          <SongItem key={index} songId={song.songId} title={song.title} artist={song.artist} artistId={song.artistId} duration={song.duration}/>
         ))}
       </div>
     </div>

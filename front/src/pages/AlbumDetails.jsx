@@ -1,20 +1,20 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import SongItem from '../components/SongItem'
-// import './AlbumDetails.css'
 
-// Dummy album data (replace with API or props if needed)
 const albums = {
   '1': {
     id: '1',
-    name: 'Álbum 1',
-    artist: 'Artista X',
+    name: 'Album 1',
+    artist: 'Artista 1',
+    artistId: '1',
     releaseDate: '2023-09-01',
-    thumbnail: '/images/album1.png',
+    thumbnail: '/assets/Master_of_Puppets_cover.jpg',
     songs: [
-      { id: '1', title: 'Cancion 1', duration: '3:20' },
-      { id: '2', title: 'Cancion 2', duration: '4:10' },
-      { id: '3', title: 'Cancion 3', duration: '1:59' }
+      { songId: '1', title: 'Cancion 1', artist: 'Artista 1', artistId: '1', duration: '3:20' },
+      { songId: '2', title: 'Cancion 2', artist: 'Artista 1', artistId: '1', duration: '4:10' },
+      { songId: '3', title: 'Cancion 3', artist: 'Artista 1', artistId: '1', duration: '1:59' }
     ]
   }
 }
@@ -31,18 +31,15 @@ const AlbumDetails = () => {
         <img src={album.thumbnail} alt={album.name} className="album-thumbnail" />
         <div className="album-info">
           <h2>{album.name}</h2>
-          <p>{album.artist}</p>
+          <Link to={`/artist/${encodeURIComponent(album.artistId)}`} className="logo-link">
+            <p>{album.artist}</p>
+          </Link>
           <p>{album.releaseDate}</p>
         </div>
       </div>
       <ul className="song-list">
         {album.songs.map((song, index) => (
-          <SongItem
-            key={song.id}
-            index={index + 1}
-            title={song.title}
-            duration={song.duration}
-          />
+          <SongItem key={index} songId={song.songId} title={song.title} artist={song.artist} artistId={song.artistId} duration={song.duration} />
         ))}
       </ul>
     </div>

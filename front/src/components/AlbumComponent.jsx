@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
-const SongCard = ({ title, artist, albumId }) => {
+const AlbumComponent = ({ albumId, albumName, artist, releaseDate }) => {
   const navigate = useNavigate()
 
   const handleCardClick = () => {
@@ -10,7 +10,7 @@ const SongCard = ({ title, artist, albumId }) => {
 
   const handlePlayClick = (e) => {
     e.stopPropagation()
-    console.log('Play button clicked')
+    console.log('Play album button clicked')
   }
 
   return (
@@ -20,11 +20,12 @@ const SongCard = ({ title, artist, albumId }) => {
         <button className="play-button" onClick={handlePlayClick}>▶</button>
       </div>
       <div className="song-info">
-        <p>{title}</p>
+        <p>{albumName}</p>
         <small>{artist}</small>
+        {/* <small>{releaseDate}</small> */}
       </div>
     </div>
   )
 }
 
-export default SongCard
+export default AlbumComponent

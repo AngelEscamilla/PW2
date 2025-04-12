@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-//import './Topbar.css'
 
 const Topbar = () => {
   const [search, setSearch] = useState('')

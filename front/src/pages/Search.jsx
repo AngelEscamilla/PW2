@@ -10,7 +10,6 @@ const Search = () => {
   return (
     <div className="search-page" style={{ color: 'white', padding: '20px' }}>
       <h2>Resultados para: "{searchTerm}"</h2>
-      {/* You could map search results here */}
     </div>
   )
 }
